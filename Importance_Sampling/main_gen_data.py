@@ -115,7 +115,7 @@ if __name__ == '__main__':
                     X_train = scaler.fit_transform(X_train)
                     X_test = scaler.transform(X_test)
 
-                    # retarded pytorch data transforms
+                    # pytorch data transforms
                     X_train = Variable(torch.from_numpy(X_train)).float()
                     y_train = Variable(torch.from_numpy(y_train)).long()
                     X_test = Variable(torch.from_numpy(X_test)).float()

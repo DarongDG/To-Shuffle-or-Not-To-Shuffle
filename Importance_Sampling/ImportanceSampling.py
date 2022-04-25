@@ -131,7 +131,7 @@ def train_epoch_presorted(model, train_set, sgd, lr, batchsize, epoch, n_epochs,
 
         # mini-batch
         mini_batch = Subset(train_set, idx)
-        # log selected datapoints
+        # log selected data points
         indices[batch_idx].append(idx)
         train_loader = torch.utils.data.DataLoader(mini_batch, batch_size=batchsize)
 
@@ -291,7 +291,7 @@ def train_epoch_is(model, train_set, sgd, lr, optimizer, is_batchsize, batchsize
         indices[batch_idx].append(idx)
         train_loader = torch.utils.data.DataLoader(mini_batch, batch_size=batchsize)
 
-        ### actually train the model with the mini-batch
+        # ! actually train the model with the mini-batch !
         model.eval()  # not train because of custom class...
         for (input, target) in train_loader:
 
@@ -530,4 +530,4 @@ def train(model, train_set, test_set, lr, batchsize, save, n_epochs, useIS=False
                 test_error
             ))
 
-    return (train_loss_hist, train_error_hist, test_loss_hist, test_error_hist)
+    return train_loss_hist, train_error_hist, test_loss_hist, test_error_hist
